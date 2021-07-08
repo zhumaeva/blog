@@ -1,3 +1,4 @@
+from django.http import response
 from django.views.generic import ListView, DetailView
 from .models import Post
 
@@ -13,6 +14,14 @@ class PostDetailView(DetailView):
     context_object_name = 'post'
 
 
+    def get(self, request, *args, **kwargs):
+        response = super().get(request, *args, *kwargs)
+        post = self.object
+        post.views = post.views + 1
+        post.save()
+        return response
+
+
 class PostByCategory(ListView):
     model = Post
     template_name = 'post/index.html'
@@ -20,7 +29,7 @@ class PostByCategory(ListView):
 
     def get_queryset(self):
         category_slug = self.kwargs.get('slug')
-        posts = Post.objects.filter(categoty__slug=category_slug)
+        posts = Post.objects.filter(category__slug=category_slug)
         return posts
 
 

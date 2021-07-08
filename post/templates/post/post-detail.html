@@ -1,7 +1,7 @@
 
 {% extends 'base.html' %}
 {% load static %}
-{#{% load sidebar %}#}
+{% load sidebar %}
 
 {% block title %}{{ post.title }} :: {{ block.super }}{% endblock %}
 
@@ -187,8 +187,8 @@ aria-hidden="true"></i></a>7</span>
                                 <input type="submit" value="Search">
                             </form>
                         </div>
-{#                            {% get_popular 3 %}#}
-{#                            {% get_tags %}#}
+                            {% get_popular 3 post.category %}
+                           {% get_tags %}
 
 
                         </div>

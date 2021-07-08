@@ -27,7 +27,7 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
-    def get_asolute_url(self):
+    def get_absolute_url(self):
         return reverse('posts_by_category', kwargs={'slug': self.slug})
 
     class Meta:
