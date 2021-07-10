@@ -182,8 +182,8 @@ aria-hidden="true"></i></a>7</span>
                         <div class="col-md-4">
                         <div class="newsletter">
                             <h2 class="sidebar-title">Search</h2>
-                            <form action="" method="get">
-                                <input type="text" name="s" placeholder="Search...">
+                            <form action="{% url 'post_search' %}" method="get">
+                                <input type="text" name="search" placeholder="Search...">
                                 <input type="submit" value="Search">
                             </form>
                         </div>
